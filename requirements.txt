@@ -1,0 +1,7 @@
+numpy==1.23.3
+pandas==1.4.4
+plotly==5.11.0
+pretty_html_table==0.9.16
+termcolor==2.1.1
+openpyxl==3.0.10
+kaleido==0.2.1
