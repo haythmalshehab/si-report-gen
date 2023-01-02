@@ -481,7 +481,7 @@ def gen_customer_report(trello_board):
     customer_report = customer_report.sort_values(by=["T#"], ignore_index=True)
     customer_report.index.rename("NO.", inplace=True)
     customer_report.index += 1 
-    file_name = "CUS_SOC_REPORT.xlsx"
+    file_name = "EXTERNAL_REPORT.xlsx"
     report_start_date_abbriviated = (trello_board["TICKET_CREATION_TIMESTAMP"].min().strftime("%d%b%y")).upper()
     report_end_date_abbriviated = (trello_board["TICKET_CREATION_TIMESTAMP"].max().strftime("%d%b%y")).upper()  
     customer_report.to_excel("./OUTPUT/[{}-{}]{}".format(report_start_date_abbriviated, report_end_date_abbriviated, file_name))
