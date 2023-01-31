@@ -115,6 +115,9 @@ def load_trello_board():
         "OFFENSE_ID": "OFFENSE_ID",
         "RESOLUTION_CODE": "RESOLUTION_CODE",
     }, inplace=True)
+
+    # Remove new line char since it is used EVERYWHERE
+    trello_board['DESC'] = trello_board['DESC'].str.replace('\n', '') 
     return trello_board
 
 
@@ -486,7 +489,7 @@ def gen_customer_report(trello_board):
     report_end_date_abbriviated = (trello_board["TICKET_CREATION_TIMESTAMP"].max().strftime("%d%b%y")).upper()  
     customer_report.to_excel("./OUTPUT/[{}-{}]{}".format(report_start_date_abbriviated, report_end_date_abbriviated, file_name))
     print(colored('[SUCCESS]', 'green'), end='.....................')
-    print('Customer report generated and exported.')
+    print('External report generated and exported.')
 
 
 def gen_internal_report(trello_board):
